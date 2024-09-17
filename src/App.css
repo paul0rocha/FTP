@@ -252,3 +252,106 @@ body {
   margin-top: 10px; /* Adjust the value as needed for spacing */
 }
 
+/* Other existing styles */
+
+.file-delete-container {
+  margin-top: 20px; /* Space above the file delete section */
+}
+
+.file-delete-select {
+  margin-bottom: 10px; /* Space between the dropdown and the button */
+}
+
+.delete-button {
+  margin-top: 10px; /* Space above the button if needed */
+}
+
+
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+}
+
+.file-input {
+  margin-bottom: 20px;
+}
+
+.file-info {
+  margin-top: 10px;
+}
+
+.upload-button, .clear-button, .remove-button, .delete-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-button:disabled {
+  background-color: #ccc;
+}
+
+.clear-button, .delete-button {
+  background-color: #dc3545;
+}
+
+.clear-button:hover, .delete-button:hover {
+  background-color: #c82333;
+}
+
+.success-message, .error-message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: white;
+}
+
+.error-message {
+  background-color: #dc3545;
+  color: white;
+}
+
+.file-delete-dropdown {
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.file-delete-container {
+  margin-top: 10px;
+}
