@@ -6,7 +6,7 @@ import stream from 'stream';
 import csv from 'csv-parser'; // Biblioteca para ler CSV
 
 const app = express();
-const port = 3000;
+const port = 80;
 
 // Configura o middleware CORS para permitir requisições de diferentes origens
 app.use(cors());
