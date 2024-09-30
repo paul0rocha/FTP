@@ -3,15 +3,15 @@ import ftp from 'basic-ftp';
 import cors from 'cors';
 import multer from 'multer';
 import stream from 'stream';
-import csv from 'csv-parser'; // Biblioteca para ler CSV
+import csv from 'csv-parser';
 
 const app = express();
-const port = 80;
+const port = 3000;
 
-// Configura o middleware CORS para permitir requisições de diferentes origens
+
 app.use(cors());
 
-// Configuração da conexão FTP
+
 const ftpConfig = {
   host: "files.umov.me",
   user: "master.nespressolog",
@@ -19,23 +19,23 @@ const ftpConfig = {
   secure: false
 };
 
-// Configuração do multer para uploads de arquivos
+
 const upload = multer({ storage: multer.memoryStorage() });
 
-// Função para listar arquivos de uma pasta específica no FTP
+
 const listFilesFromFtp = async (folderPath) => {
   const client = new ftp.Client();
-  client.ftp.verbose = true; // Ativa o modo verbose para depuração detalhada
+  client.ftp.verbose = true; 
 
   try {
     await client.access(ftpConfig);
 
-    // Lista os arquivos na pasta especificada
+    
     const fileList = await client.list(folderPath);
 
-    // Cria uma resposta detalhada
+    
     return fileList.map(file => {
-      // Verifica e converte a data para uma string legível
+    
       const dateModified = file.date instanceof Date ? 
         file.date.toISOString() : 
         (typeof file.date === 'string' ? new Date(file.date).toISOString() : 'Data não disponível');
@@ -185,7 +185,7 @@ app.post('/upload/csv', upload.array('files'), async (req, res) => {
 app.delete('/delete/file/:filename', async (req, res) => {
   const { filename } = req.params;
 
-  if (!filename) {
+  if (!filename) {  
     return res.status(400).send('Filename is required.');
   }
 
@@ -255,7 +255,6 @@ app.get('/list/files/processados/csv', async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Servidor rodando na porta ${process.env.PORT || 3000}`);
 });
